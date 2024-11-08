@@ -16,7 +16,7 @@ interface IPropsFormField<T extends FieldValues> {
 
 export const FormField = <T extends FieldValues>({ label, type, name, control, error, id, placeholder }: IPropsFormField<T>) => {
     return (
-        <div>
+        <div className="field-container">
             <label htmlFor={id || label.toLowerCase()} className={``}>{label}</label>
             <Controller
                 name={name}

@@ -3,5 +3,4 @@ export interface ILoginResponse {
     token: string;
 }
 
-// min 1:06:00
 

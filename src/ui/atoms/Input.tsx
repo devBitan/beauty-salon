@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../app/globals.scss';
 
 //crear las clases de css para poner este imput de manera global, que me sirva para todo 
 
@@ -13,7 +14,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 export const Input =({ placeholder, type, name, error,  ...props }: InputProps) => {
     // desesctructuramos las props porque trae todas las de html
     return (
-        <div className='input-generic'>
+        <div className='input-container'>
             <input type={type} name={name} placeholder={placeholder} className={`${error ? "error" : "no-error"}`} {...props}/>
             {error && <p className='error-message'>{error}</p>}
         </div>

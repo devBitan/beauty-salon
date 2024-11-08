@@ -1,0 +1,123 @@
+$gold: #daa520;
+$white: #ffffff;
+$black: #000000;
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-color: $white;
+}
+body {
+  width: 100vw;
+}
+
+.error {
+  border: 1px solid tomato;
+}
+
+.no-error {
+  border: 1px solid rgb(108, 252, 25);
+}
+
+.formField{
+  border: 1px solid black;
+}
+
+
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $black;
+  color: $white;
+  height: 100vh;
+  width: 250px;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: $gold;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .navLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    button {
+      background: none;
+      border: none;
+      color: $white;
+      font-size: 18px;
+      text-align: left;
+      cursor: pointer;
+      padding: 10px;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background-color: $gold;
+        color: $black;
+      }
+    }
+  }
+
+  .logout {
+    background-color: $gold;
+    color: $black;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: darken($gold, 10%);
+    }
+  }
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: $white;
+}
+.content {
+  // border: 1px solid tomato;
+  flex-grow: 1;
+  padding: 20px;
+  margin: 5px; // Igual al ancho de la barra lateral
+}
+
+// Login
+.auth-container{
+  width: 450px;
+  border: 1px solid tomato;
+  margin: 10rem auto;
+  padding: 20px;
+}
+
+.form-container {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field-container {
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid green;
+
+}
+
+.btn-container{
+  background-color: $gold;
+}
