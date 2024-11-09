@@ -15,7 +15,7 @@ interface AuthUser {
     token: string;
 }
 
-interface CustomSession extends Session {
+export interface CustomSession extends Session {
     user: {
         id?: string;
         token?: string;
@@ -34,15 +34,14 @@ export const authOptions: NextAuthOptions = {
                 password: { label: "Contraseña", type: "password" },
             },
             authorize: async (credentials) => {
-                if (!credentials?.password || credentials?.username){
-                    console.error("credentials faltan")
-                    return null
+                if (!credentials?.password || !credentials.username) {
+                    console.error("Credenciales faltantes");
+                    return null;
                 }
-
                 const loginRequest: ILoginRequest = {
-                    password: credentials?.password,
-                    userName: credentials?.username,
-                }
+                    password: credentials.password,
+                    userName: credentials.username
+                };
 
                 try {
                     const authService = new AuthService();
@@ -52,15 +51,14 @@ export const authOptions: NextAuthOptions = {
                         email: loginRequest.userName,
                         id: loginRequest.userName,
                         name: loginRequest.userName,
-                        token: response.token,
+                        token: response.token
+                    } as AuthUser;
 
-                    } as AuthUser
                 } catch (error) {
-                    console.log(error)
-                    return Promise.reject(new Error(JSON.stringify(error)))
-                    
+                    console.log(error);
+                    return Promise.reject(new Error(JSON.stringify(error)));
                 }
-            }
+            },
         }),
     ],
     session: {
@@ -84,6 +82,5 @@ export const authOptions: NextAuthOptions = {
     },
 };
 
-const handler=  NextAuth(authOptions);
-
-export {handler as GET, handler as POST};
+export const GET = NextAuth(authOptions);
+export const POST = NextAuth(authOptions);

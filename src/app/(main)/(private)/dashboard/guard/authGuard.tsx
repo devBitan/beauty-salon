@@ -31,7 +31,7 @@ export default function AuthGuard(
     return (
 
       <>
-        <h1>poner spiner</h1>
+        <h1>Aquí iria un spinner </h1>
       </>
     )
   }

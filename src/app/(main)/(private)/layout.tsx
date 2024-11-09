@@ -8,18 +8,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
- 
   return (
-    <html lang="en">
-      <section className="layout">
-        <Sidebar />
-        <article className="content">
-          {/* <AuthGuard> */}
-            {children}
-
-          {/* </AuthGuard> */}
-        </article>
-      </section>
-    </html>
+    <section className="layout">
+      <Sidebar />
+      <article className="content">
+        <AuthGuard>
+          {children}
+        </AuthGuard>
+      </article>
+    </section>
   );
 }

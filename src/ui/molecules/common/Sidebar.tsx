@@ -27,9 +27,9 @@ const Sidebar: React.FC = () => {
       </div>
       <nav className={styles.navLinks}>
         <button onClick={() => handleNavigation('/dashboard/services')}>Services</button>
-        <button onClick={() => handleNavigation('/dashboard/appointment')}>Appointment</button>
-        <button onClick={() => handleNavigation('/dashboard/employees')}>Employees</button>
         <button onClick={() => handleNavigation('/dashboard/customers')}>Customers</button>
+        {/* <button onClick={() => handleNavigation('/dashboard/appointment')}>Appointment</button>
+        <button onClick={() => handleNavigation('/dashboard/employees')}>Employees</button> */}
       </nav>
       <button className={styles.logout} onClick={handleLogout}>Logout</button>
     </div>

@@ -1,11 +1,32 @@
-import Image from "next/image";
-import styles from "../page.module.scss";
-import Sidebar from "@/ui/molecules/common/Sidebar";
+import React from 'react';
+import { ServicesService } from '@/app/infraestructure/services/service.service';
+import ContainerS from '@/ui/organisms/ContainerServices';
 
-export default function ServicePage() {
+const useServicesService = new ServicesService()
+
+interface IProps {
+    searchParams: {
+        page: string;
+        size: string;
+        name: string;
+    }
+}
+
+export const generateMetadata = async ({ searchParams }: IProps) => {
+    const page = searchParams.page ?? '1'
+    return {
+        title: `Services - Página ${page}`,
+        description: 'Service of beauty-salon'
+    }
+}
+
+export default async function ServicesPage({ searchParams }: IProps) {
+  const page = searchParams.page ? parseInt(searchParams.page) : 1
+  const size = searchParams.size ? parseInt(searchParams.size) : 9
+
+  const data = await useServicesService.findAll(page, size)
+
   return (
-   <>
-  <h1>holi</h1>
-   </>
-  );
+          <ContainerS data={data} />
+  )
 }
